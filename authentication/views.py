@@ -8,12 +8,16 @@ from django.contrib import messages
 def register_request(request):
     context={}
     if request.method == "POST":
-        form=UserRegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Registration successful." )
-            return redirect('login')
-        messages.error(request, "Unsuccessful registration. Invalid information.")
+        try:
+            form=UserRegistrationForm(request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(request, "Registration successful." )
+                print("success")
+                return redirect('login')
+        except Exception as e:
+            messages.error(request, "Unsuccessful registration. Invalid information.")
+            print(e)
         context['register_form']=form
     else:
         form = UserRegistrationForm()

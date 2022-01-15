@@ -33,7 +33,7 @@ class MyUserManager(BaseUserManager):
         return user
 class MyUser(AbstractBaseUser):
     email = models.EmailField(verbose_name="Email", max_length=60, unique=True)
-    profession = models.CharField(verbose_name="Profession", max_length=200,unique=True)
+    profession = models.CharField(verbose_name="Profession", max_length=200,unique=False)
     username = models.CharField(verbose_name="Username", max_length=200)
     date_joined = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now=True)

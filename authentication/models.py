@@ -4,25 +4,21 @@ from django.contrib.auth.models import  AbstractBaseUser, BaseUserManager
 
 # Create your models here.
 class MyUserManager(BaseUserManager):
-    def create_user(self, email, profession,username,password=None):
+    def create_user(self, email,username,password=None):
         if not email:
             raise ValueError("email is required")
-        if not profession:
-            raise ValueError("Please provide your profession")
         if not username:
             raise ValueError("username is required")
         user = self.model(
             email=self.normalize_email(email),
-            profession = profession,
             username = username
         )
         user.set_password(password)
         user.save(using=self._db)
         return user
-    def create_superuser(self, email, profession,username,password=None):
+    def create_superuser(self, email,username,password=None):
         user = self.create_user(
             email=self.normalize_email(email),
-            profession=profession,
             username=username,
             password=password,
         )
@@ -33,7 +29,6 @@ class MyUserManager(BaseUserManager):
         return user
 class MyUser(AbstractBaseUser):
     email = models.EmailField(verbose_name="Email", max_length=60, unique=True)
-    profession = models.CharField(verbose_name="Profession", max_length=200,unique=False)
     username = models.CharField(verbose_name="Username", max_length=200)
     date_joined = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now=True)
@@ -44,7 +39,7 @@ class MyUser(AbstractBaseUser):
     
     USERNAME_FIELD = 'email'
     
-    REQUIRED_FIELDS = ['profession','username']
+    REQUIRED_FIELDS = ['username']
     
     objects = MyUserManager()
     

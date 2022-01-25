@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse,redirect
-from . models import Catalogue, CustomerEntry
+from . models import Catalogue, CustomerEntry, Product
 
 # Create your views here.
 def post(request):
@@ -11,5 +11,7 @@ def Entry(request,pk):
     ctx = {"res":result}
     return render(request, "entry.html", ctx)
         
-def product(request):
-    return render(request, 'main/product.html')
+def product(request,pk):
+    res = Product.objects.get(id=pk)
+    ctx = {"res":res}
+    return render(request, 'main/product.html',ctx)

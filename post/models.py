@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -20,11 +21,12 @@ class Product(models.Model):
         ('Other','Other'),
     ]
     category = models.CharField(choices=CATEGORY_OPTIONS,max_length=255, blank=True)
+    image = CloudinaryField('image',blank=True)
     title = models.CharField(max_length=200)
     description = models.TextField()
     comment = models.TextField()
     
     def __str__(self):
-        return str(self.category)
+        return str(self.title)
     
 

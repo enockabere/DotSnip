@@ -74,7 +74,6 @@ INSTALLED_APPS = [
     'bootstrap5',
     'cloudinary',
     'post',
-    'landing'
 ]
 
 MIDDLEWARE = [

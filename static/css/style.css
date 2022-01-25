@@ -93,3 +93,9 @@
     width: auto;
     height: 200px;
 }
+
+.header img {
+    margin-top: 1rem;
+    width: 250px;
+    height: auto;
+}

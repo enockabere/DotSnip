@@ -54,13 +54,9 @@
 }
 
 .heros {
-    height: 70vh;
+    height: 110vh;
     width: 100%;
-    background: url(../img/Entry/1.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: #c1ecec;
     margin-top: -4rem;
 }
 
@@ -69,19 +65,30 @@
 }
 
 .e-text {
-    margin-top: 8rem;
+    height: 90vh;
+    margin-top: 12rem;
+    background: url(../img/Pro/4.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
 }
 
 .e-text h5 {
+    padding-top: 12rem;
+    padding-left: 18rem;
+    padding-right: 18rem;
     font-size: 3rem;
-    font-family: var(--font3);
-    color: var(--green);
+    font-family: var(--font1);
+    color: rgb(0, 0, 0);
     font-weight: bold;
 }
 
 .e-text a {
-    border-radius: 10px;
+    background-color: transparent;
+    border-color: black;
     font-family: var(--font1);
+    padding: 1rem;
     font-size: 1.3rem;
 }
 
@@ -98,4 +105,15 @@
     margin-top: 1rem;
     width: 250px;
     height: auto;
+}
+
+.e-heads {
+    padding: 1rem;
+    text-align: center;
+    font-family: var(--font1);
+    font-size: 1.5rem;
+}
+
+#brands {
+    font-family: var(--font2);
 }

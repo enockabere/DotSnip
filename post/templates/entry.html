@@ -3,10 +3,10 @@
 {% load static %}
 {% block content %}
 <section class="entry">
-    <nav class="navbar navbar-expand-lg navbar-light" style="background: white;">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="../../../static/img/logo/2.png" class="img-fluid" alt="" srcset="">
+            <a class="navbar-brand" id="brands" href="#">
+                Captivate Africa <span class="br">{{res.title}}</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,19 +22,18 @@
 <section class="heros">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-5">
-                <div class="e-text">
+            <div class="col-md-12">
+                <div class="e-text mx-auto text-center">
                     <h5>
-                        Check out our <span class="br">{{res.title}}</span> Below!!!
+                        The New Way To Display <span class="br">{{res.title}}</span> by Captivate Africa
                     </h5>
-                    <a type="button" href="" class="btn btn-info my-3">Scroll Down <i class="las la-level-down-alt"
-                            style="color:red; font-size:1.5rem"></i></a>
+                    <a type="button" href="#next" class="btn btn-info my-3">Explore Now </a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row my-3 pb-3 e-row">
+    <div class="container" id="next">
+        <div class="row mb-3 pb-3 e-row">
             {% for pro in pro %}
             <div class="col-md-4">
                 <div class="card h-100 e-card">
@@ -46,7 +45,7 @@
                     <div class="card-body">
                         <h5 class="card-title text-dark">{{pro.title}}</h5>
                         <p class="card-text">{{pro.description}}</p>
-                        <a href="{% url 'product' res.id %}" class="btn btn-primary">Request</a>
+                        <a href="{% url 'product' res.id %}" class="btn btn-primary">Select {{res.title}}</a>
                     </div>
                 </div>
             </div>

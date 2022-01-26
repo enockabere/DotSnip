@@ -8,23 +8,18 @@ class Catalogue(models.Model):
     
     def __str__(self):
         return str(self.title)
-    
-class CustomerEntry(models.Model):
-    entry = models.ForeignKey(Catalogue, on_delete=models.CASCADE,related_name="entries")
-    def __str__(self):
-        return str(self.entry)
-    
+        
 class Product(models.Model):
-    CATEGORY_OPTIONS = [
-        ('Product','Product'),
-        ('Service','Service'),
-        ('Other','Other'),
+    STATUS = [
+        ('Available','Available'),
+        ('Sold','Sold'),
     ]
-    category = models.CharField(choices=CATEGORY_OPTIONS,max_length=255, blank=True)
     image = CloudinaryField('image',blank=True)
+    price = models.IntegerField(blank=True)
     title = models.CharField(max_length=200)
     description = models.TextField()
-    comment = models.TextField()
+    status = models.CharField(choices=STATUS,max_length=255, blank=True)
+    category = models.ForeignKey(Catalogue, on_delete=models.CASCADE,related_name="entries")
     
     def __str__(self):
         return str(self.title)

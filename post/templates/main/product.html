@@ -4,9 +4,57 @@
 {% block content %}
 <nav class="navbar navbar-light">
     <div class="container-fluid">
-        <a class="navbar-brand">Hello <span class="br">{{user.username}}</span></a>
+        <a class="navbar-brand">
+            <img src="../../../static/img/logo/2.png" class="img-fluid" alt="" srcset="">
+        </a>
         <button class="btn btn-outline-success" type="submit">Logout</button>
         </form>
     </div>
 </nav>
+<section class="heros">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="e-text">
+                    <h5>
+                        Hi, {{user.username}}. You have selected <span class="br">{{res.title}}</span>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col md-12">
+                <div class="header">
+                    <h4>
+                        About {{res.title}}
+                    </h4>
+                </div>
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-3">
+                            {% if res.image %}
+                            <img src="https://res.cloudinary.com/enock/{{res.image}}" class="card-img-top ing-fluid"
+                                alt="...">
+                            {% else %}
+                            <img src="../../static/img/1.png" alt="" srcset="">
+                            {% endif %}
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card-body my-5">
+                                <p class="card-text">{{res.description}}</p>
+                                <p class="card-text"><small class="text-muted">Type:
+                                        <span>{{res.category}}</span></small></p>
+                                <button class="btn btn-success">Checkout {{res.title}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

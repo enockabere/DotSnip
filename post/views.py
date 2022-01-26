@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse,redirect
-from . models import Catalogue, CustomerEntry, Product
+from . models import Catalogue, Product
 
 # Create your views here.
 def post(request):

@@ -19,7 +19,7 @@
         </div>
     </nav>
 </section>
-<section class="heros">
+<section class="heros mb-4">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -32,129 +32,13 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col md-12">
-                <div class="header">
-                    <h4>
-                        About {{res.title}}
-                    </h4>
-                </div>
-                <div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-md-3">
-                            <img src="https://res.cloudinary.com/enock/{{res.image}}" class="img-fluid" alt="...">
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card-body">
-                                <p class="card-text">{{res.description}}</p>
-                                <p class="card-text"><small class="text-muted">Type:
-                                        <span class="br">{{res.category}}</span></small></p>
-                                <p>Status: <span class="br">{{res.status}}</span></p>
-                                <button class="btn btn-outline-success">Amount: Kshs {{res.price}}</button>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <img src="../../../static/img/Pro/6.png" width="290px" class="img-fluid" alt="">
-                            <div class="modal fade" id="exampleModalToggle" aria-hidden="true"
-                                aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalToggleLabel">Invoice for
-                                                {{res.title}}
-                                            </h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="row">
-                                                <div class="col-md-5">
-                                                    <h5>
-                                                        From,
-                                                    </h5>
-                                                    <h6>
-                                                        Captivate Africa Ltd
-                                                    </h6>
-                                                    <p>Invoice Id: <span class="br">{{res.id}}</span></p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-7">
 
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <h5>
-                                                        To,
-                                                    </h5>
-                                                    <h6>
-                                                        {{request.user.username}}
-                                                    </h6>
-                                                    <p>Email: <span class="br"> {{request.user.email}}</span></p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <table class="table table-striped table-responsive table-bordered">
-                                                        <thead>
-                                                            <tr style="background: red;">
-                                                                <th scope="col">#</th>
-                                                                <th scope="col">Description</th>
-                                                                <th scope="col">Unit Cost</th>
-                                                                <th scope="col">Total</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <th scope="row">1</th>
-                                                                <td>{{res.title}}</td>
-                                                                <td>Kshs {{res.price}}</td>
-                                                                <td>Kshs {{res.price}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Print Invoice</button>
-                                            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2"
-                                                data-bs-toggle="modal" data-bs-dismiss="modal">Proceed to
-                                                Payment</button>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal fade" id="exampleModalToggle2" aria-hidden="true"
-                                aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalToggleLabel2">Payment Details</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Hi, {{request.user.username}} Please check your email for payment details.
-                                            Thank you for your business!
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle"
-                                role="button">Proceed to checkout</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+
+
 </section>
 {% endblock %}

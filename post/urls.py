@@ -7,6 +7,7 @@ urlpatterns = [
     path("post", views.post,name="post"),
     path("product/<int:pk>/", views.product,name="product"),
     path("entry/<int:pk>/", views.Entry,name="entry"),
+    path("ViewPDF/<int:pk>/", views.ViewPDF,name="pdfs"),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

@@ -1,5 +1,4 @@
 from django.db import models
-
 from django.contrib.auth.models import  AbstractBaseUser, BaseUserManager
 
 # Create your models here.
@@ -27,6 +26,7 @@ class MyUserManager(BaseUserManager):
         user.is_superuser = True
         user.save(using=self._db)
         return user
+    
 class MyUser(AbstractBaseUser):
     email = models.EmailField(verbose_name="Email", max_length=60, unique=True)
     username = models.CharField(verbose_name="Username", max_length=200)
@@ -50,4 +50,3 @@ class MyUser(AbstractBaseUser):
         return True
     def has_module_perms(self, app_label):
         return True
-    

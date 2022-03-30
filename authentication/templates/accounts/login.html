@@ -20,19 +20,19 @@
                         Hello, Welcome Back! You are clicks away from seeing our catalog or even creating a job ticket.
                     </p>
 
-                    <form action="" method="post">
+                    <form action="{% url 'login' %}" method="post">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <p><span>{{login_form.email.label}}</span></p>
-                                    <p><span>{{login_form.email}}</span></p>
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" name="email" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <p><span>{{login_form.password.label}}</span></p>
-                                    <p><span>{{login_form.password}}</span></p>
+                                    <label class="form-label">Password</label>
+                                    <input type="password" class="form-control" name="password" required>
                                 </div>
                             </div>
                         </div>

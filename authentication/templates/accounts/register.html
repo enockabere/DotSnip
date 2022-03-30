@@ -20,33 +20,33 @@
                     <p class="b-p">
                         Hello! You are clicks away from seeing our catalog or even creating a job ticket.
                     </p>
-                    <form action="" method="post">
+                    <form action="{% url 'register' %}" method="post">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <p><span>{{register_form.username.label}}</span></p>
-                                    <p><span>{{register_form.username}}</span></p>
+                                    <label class="form-label">Username</label>
+                                    <input type="text" class="form-control" name="username" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <p><span>{{register_form.email.label}}</span></p>
-                                    <p><span>{{register_form.email}}</span></p>
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" name="email" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <p><span>{{register_form.password1.label}}</span></p>
-                                    <p><span>{{register_form.password1}}</span></p>
+                                    <label class="form-label">Password</label>
+                                    <input type="password" class="form-control" name="password" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <p><span>{{register_form.password2.label}}</span></p>
-                                    <p><span>{{register_form.password2}}</span></p>
+                                    <label class="form-label">Password</label>
+                                    <input type="password" class="form-control" name="password2" required>
                                 </div>
                             </div>
                         </div>

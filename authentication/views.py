@@ -13,7 +13,6 @@ def register_request(request):
             if form.is_valid():
                 form.save()
                 messages.success(request, "Registration successful." )
-                print("success")
                 return redirect('login')
         except Exception as e:
             messages.error(request, "Unsuccessful registration. Invalid information.")

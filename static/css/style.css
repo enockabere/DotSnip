@@ -54,7 +54,7 @@
 }
 
 .heros {
-    height: 110vh;
+    height: 50vh;
     width: 100%;
     background: #c1ecec;
     margin-top: -4rem;
@@ -65,9 +65,8 @@
 }
 
 .e-text {
-    height: 90vh;
-    margin-top: 12rem;
-    background: url(../img/Pro/4.png);
+    height: 50vh;
+    background: url(../img/auth/1.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

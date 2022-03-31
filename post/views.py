@@ -12,8 +12,8 @@ def post(request):
     result = Catalogue.objects.all()
     ctx = {"res":result}
     return render(request,'main/dashboard.html', ctx)
-def Entry(request,pk):
-    result = Catalogue.objects.get(id=pk)
+def Entry(request):
+    result = Catalogue.objects.all()
     pro = Product.objects.all()
     my_cart = Cart.objects.filter(user=request.user)
     ctx = {"res":result,"pro":pro,"cart":my_cart}
@@ -50,17 +50,17 @@ def product(request,pk):
                 total = (res.price * quantity),
             )
             messages.success(request, "Successfully Added to Cart!!")
-            return redirect("entry",pk=pk)
+            return redirect("entry")
         except Exception as e:
             messages.success(request, "You can only add an item once")
-            return redirect("entry",pk=pk)
+            return redirect("entry")
     
     ctx = {"res":res}
     return render(request, 'main/product.html',ctx)
 
 
 
-def ViewPDF(request,pk):
+def ViewPDF(request):
     today = date.today()
     d2 = today.strftime("%B %d, %Y")
     my_cart = Cart.objects.filter(user=request.user)
@@ -68,4 +68,4 @@ def ViewPDF(request,pk):
     if request.method == "POST":
         pdf = render_to_pdf('pdf/invoice.html',data)
         return HttpResponse(pdf,content_type='application/pdf')
-    return redirect("product",pk=pk)
+    return redirect("entry")

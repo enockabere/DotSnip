@@ -135,7 +135,7 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <form action="{% url 'pdfs' res.id %}" method="post">
+                <form action="{% url 'pdfs' %}" method="post">
                     {% csrf_token %}
                     <input type="hidden" name="pk" value="{{res.id}}">
                     <button type="submit" class="btn btn-info">Accept and View Receipt</button>

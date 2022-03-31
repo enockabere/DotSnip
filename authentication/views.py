@@ -36,11 +36,9 @@ def register_request(request):
         if MyUser.objects.filter(email=email).exists():
             messages.error(request,'Email is taken, choose another one')
         try:
-            user = MyUser.objects.create(
-                email =email,
-                username = username,
-                password =password,
-                )
+            user = MyUser.objects.create_user(username=username, email=email)
+            user.set_password(password)
+            user.save()
             messages.success(request,'Registered successfully')
             return redirect('login')
         except Exception as e:
@@ -49,22 +47,24 @@ def register_request(request):
     return render(request,'accounts/register.html')
 
 def login_request(request):
-    
-    user=''
+
     if request.method == "POST":
         username = request.POST.get('email')
         password = request.POST.get('password')
-        
-        user = MyUser.objects.get(email=username)
-        if user.password == password:
-            try:
-                return redirect('post')
-            except Exception as e:
-                print(e)
-                return redirect('post')
-        if not user:
-            messages.error(request, 'Invalid credentials, try again')
-            return redirect('login')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            messages.info(request, f"You are now logged in as {username}.")
+            return redirect('post')
+        else:
+            messages.error(request,"Invalid username or password.")
+        # user = MyUser.objects.get(email=username)
+        # if user.password == password:
+        #     try:
+        #         return redirect('post')
+        #     except Exception as e:
+        #         print(e)
+        #         return redirect('post')
     return render(request, 'accounts/login.html')
 def logout_request(request):
     logout(request)
